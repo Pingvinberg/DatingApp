@@ -16,3 +16,19 @@
     padding: 10px 15px;    
     border-top: none;
 }
+
+.btn-like {
+    color: white;
+    background-color: purple;
+    border-color: purple;
+}
+
+.btn-like:hover {
+    background-color: rgb(87, 0, 87);
+    border-color: rgb(87, 0, 87);
+}
+
+.btn-like:focus,.btn-like:active {
+    outline: none !important;
+    box-shadow: none;    
+}

@@ -24,14 +24,18 @@
   
   .member-tabset > .nav-tabs > li.active {
     border-bottom: 4px solid purple;
+    background-color: purple;
     position: relative;
   }
   
   .member-tabset > .nav-tabs > li.active > a {
+    background-color: purple;
     border: 0 !important;    
   }
   
-  .member-tabset > .nav-tabs > li.active > a > i {    
+  .member-tabset > .nav-tabs > li.active > a > i { 
+    background-color: purple;
+
   }
   
   .member-tabset > .tab-content {
@@ -39,5 +43,5 @@
     border: 0;
     border-top: 1px solid #eee;
     padding: 15px 0;
-  }
+  } 
   
