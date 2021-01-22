@@ -34,3 +34,19 @@
 .animate {
     transition: all 0.3s ease-in-out;
 }
+
+.btn-purple {
+    color: white;
+    background-color: purple;
+    border-color: purple;
+}
+
+.btn-purple:hover {
+    background-color: rgb(87, 0, 87);
+    border-color: rgb(87, 0, 87);
+}
+
+.btn-purple:focus,.btn-like:active {
+    outline: none !important;
+    box-shadow: none;    
+}

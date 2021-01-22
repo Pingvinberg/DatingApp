@@ -1,1 +1,19 @@
 .dropdown-toggle, .dropdown-item { cursor: pointer;}
+
+img {
+    max-height: 50px;
+    border: 2px solid purple;
+    display: inline;
+}
+
+.navbar-nav > .active > a {
+    color: purple;
+    background-color: purple;    
+  }
+  .nav-item > a:hover {
+    color: purple;
+  }
+
+  .navbar {
+      border-bottom: 2px solid purple;
+  }
