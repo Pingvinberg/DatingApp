@@ -40,7 +40,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             }
             else 
             {
-              this.toastr.error(error.statusText, error.status);
+              this.toastr.error(error.error, error.status);
             }          
             break;
           case 401:

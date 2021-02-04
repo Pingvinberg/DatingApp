@@ -5,6 +5,7 @@ import { MembersService } from 'src/app/_services/members.service';
 import {NgxGalleryOptions} from '@kolkov/ngx-gallery';
 import {NgxGalleryImage} from '@kolkov/ngx-gallery';
 import {NgxGalleryAnimation} from '@kolkov/ngx-gallery';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-member-detail',
@@ -16,7 +17,7 @@ export class MemberDetailComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
-  constructor(private memberService: MembersService, private route: ActivatedRoute) { }
+  constructor(private membersService: MembersService, private route: ActivatedRoute, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.loadMember();
@@ -35,7 +36,7 @@ export class MemberDetailComponent implements OnInit {
 
   loadMember()
   {
-    this.memberService.getMember(this.route.snapshot.paramMap.get('username')).subscribe(member =>
+    this.membersService.getMember(this.route.snapshot.paramMap.get('username')).subscribe(member =>
       {
         this.member = member;
         this.galleryImages = this.getImages();
@@ -54,5 +55,21 @@ export class MemberDetailComponent implements OnInit {
       })
     }
     return imageUrls;
+  }
+
+  addLike(member: Member)
+  {
+    this.membersService.addLike(member.username).subscribe(() => 
+    {
+      this.toastr.success("You have liked " + member.username);
+    })
+  }
+
+  removeLike(member: Member)
+  {
+    this.membersService.removeLike(member.id).subscribe(() => 
+    {
+      this.toastr.warning("You have removed your like on " + member.username);
+    })
   }
 }

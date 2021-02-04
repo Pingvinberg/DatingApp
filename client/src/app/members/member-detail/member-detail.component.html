@@ -23,7 +23,8 @@
              </div>
              <div class="card-footer">
                  <div class="btn-group d-flex">
-                     <button class="btn btn-like">Like</button>
+                     <button (click)="addLike(member)" class="btn btn-like">Like</button>
+                     <button (click)="removeLike(member)" class="btn btn-warning">Remove Like</button>
                      <button class="btn btn-success">Message</button>
                  </div>                
              </div>

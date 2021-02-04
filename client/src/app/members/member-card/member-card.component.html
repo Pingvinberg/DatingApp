@@ -5,7 +5,7 @@
             <li class="list-inline-item"><button routerLink='/members/{{member.username}}' class="btn btn-purple">
                 <i class="fa fa-user"></i></button>
             </li>
-            <li class="list-inline-item"><button class="btn btn-purple">
+            <li class="list-inline-item"><button (click)="addLike(member)" class="btn btn-purple">
                 <i class="fa fa-heart"></i></button>
             </li>
             <li class="list-inline-item"><button class="btn btn-purple">
