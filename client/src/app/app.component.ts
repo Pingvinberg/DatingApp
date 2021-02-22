@@ -11,6 +11,8 @@ import {
   NavigationCancel,
   NavigationError
 } from '@angular/router'
+import { PresenceService } from './_services/presence.service';
+import { MessageService } from './_services/message.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +24,7 @@ export class AppComponent implements OnInit{
   users: any;
   public showOverlay = true;  
 
-  constructor(private accountService: AccountService, private router: Router) {
+  constructor(private accountService: AccountService, private router: Router, private presenceService: PresenceService) {
     router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event)
     })
@@ -56,6 +58,7 @@ export class AppComponent implements OnInit{
     if(user)
     {
       this.accountService.setCurrentUser(user);
+      this.presenceService.createHubConnection(user);      
     }
   } 
 }

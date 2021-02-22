@@ -9,7 +9,11 @@ import { ToastrService } from 'ngx-toastr';
 import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
 import { MessageService } from 'src/app/_services/message.service';
 import { Input } from '@angular/core';
-import { Message } from 'src/app/_modules/message';
+import { Message } from 'src/app/_models/message';
+import { PresenceService } from 'src/app/_services/presence.service';
+import { User } from 'src/app/_models/user';
+import { AccountService } from 'src/app/_services/account.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-member-detail',
@@ -23,11 +27,15 @@ export class MemberDetailComponent implements OnInit {
   galleryImages: NgxGalleryImage[];
   activeTab: TabDirective;  
   messages: Message[] = [];
+  user: User;
 
 
-  constructor(private membersService: MembersService, private route: ActivatedRoute, private toastr: ToastrService, private messagesService: MessageService) { }
+  constructor(private membersService: MembersService, private route: ActivatedRoute, private toastr: ToastrService,
+     private messagesService: MessageService, public presenceService: PresenceService, private accountService: AccountService) {
+      this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
+     }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.route.data.subscribe(data => {
       this.member = data.member;      
     })
@@ -83,7 +91,10 @@ export class MemberDetailComponent implements OnInit {
   {
     this.activeTab = data;
     if(this.activeTab.heading === 'Messages' || this.messages.length === 0) {
-      this.loadMessages();
+      this.messagesService.createHubConnection(this.user, this.member.username);
+    }
+    else{
+      this.messagesService.stopHubConnection();
     }
   }
 
@@ -97,5 +108,9 @@ export class MemberDetailComponent implements OnInit {
   selectTab(tabId: number)
   {
     this.memberTabs.tabs[tabId].active = true;
+  }
+
+  ngOnDestroy(): void {
+    this.messagesService.stopHubConnection();    
   }
 }

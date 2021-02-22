@@ -17,7 +17,11 @@
         </ul>     
     </div>
     <div class="card-body p-1">
-        <div class="card-text text-center"><i class="fa fa-user mr-2"></i>{{member.username}}, {{member.age}}</div>       
+        <div class="card-text text-center">
+            <span [class.is-online]="(presenceService.onlineUsers$ | async).includes(member.username)">
+                <i class="fa fa-user mb-2"></i>
+            </span>            
+            {{member.username}}, {{member.age}}</div>       
         <div class="card-text text-muted text-center">City: {{member.city}}</div>
     </div>
 </div>

@@ -22,6 +22,7 @@
     "@angular/router": "~11.0.1",
     "@hardpool/ngx-spinner": "^2.2.1",
     "@kolkov/ngx-gallery": "^1.2.3",
+    "@microsoft/signalr": "^5.0.3",
     "bootstrap": "^4.1.1",
     "bootswatch": "^4.5.3",
     "font-awesome": "^4.7.0",
