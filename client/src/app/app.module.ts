@@ -29,6 +29,7 @@ import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { HasRoleDirective } from './_directives/has-role.directive';
 import { UserManagementComponent } from './admin/user-management/user-management.component';
 import { RolesModalsComponent } from './modals/roles-modals/roles-modals.component';
+import { ConfirmDialogComponent } from './modals/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { RolesModalsComponent } from './modals/roles-modals/roles-modals.compone
     AdminPanelComponent,
     HasRoleDirective,
     UserManagementComponent,
-    RolesModalsComponent               
+    RolesModalsComponent,
+    ConfirmDialogComponent               
   ],
   imports: [
     BrowserModule,
