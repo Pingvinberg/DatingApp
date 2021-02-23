@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace API.SingalR
 {
-    public class presenceTracker
+    public class PresenceTracker
     {
         private static readonly Dictionary<string, List<string>> OnlineUsers = new Dictionary<string, List<string>>();
 

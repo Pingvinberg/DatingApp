@@ -16,9 +16,9 @@ namespace API.SingalR
         private readonly IMapper _mapper;
         
         private readonly IHubContext<PresenceHub> _presenceHub;
-        private readonly presenceTracker _tracker;
+        private readonly PresenceTracker _tracker;
         private readonly IUnitOfWork _unitOfWork;
-        public MessageHub(IUnitOfWork unitOfWork, IMapper mapper, IHubContext<PresenceHub> presenceHub, presenceTracker tracker)
+        public MessageHub(IUnitOfWork unitOfWork, IMapper mapper, IHubContext<PresenceHub> presenceHub, PresenceTracker tracker)
         {
             _unitOfWork = unitOfWork;
             _tracker = tracker;
