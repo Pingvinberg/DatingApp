@@ -26,7 +26,7 @@ export class PresenceService {
 
     this.hubConnection
       .start()
-      .then(() => this.toastr.info("connection with presence hub Test"))
+      .then(() => this.toastr.info("Welcome"))
       .catch(error => console.log(error));
 
     this.hubConnection.on('UserIsOnline', username => {
