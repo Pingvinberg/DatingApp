@@ -69,14 +69,10 @@ namespace API
             .AllowAnyMethod()
             .AllowCredentials()
             .WithOrigins("https://localhost:4200", "https://pingvindatingapp.herokuapp.com/"));
-
             app.UseAuthentication();
-
             app.UseAuthorization();
-
             app.UseDefaultFiles();
             app.UseStaticFiles();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
