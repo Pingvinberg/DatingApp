@@ -3,7 +3,6 @@
         <div *ngIf="(messageService.messageThread$ | async)?.length === 0">
             no messages yet... say hi by using message box below
         </div>
-
         <ul *ngIf="(messageService.messageThread$ | async).length > 0" class="chat">
             <li class="no-bullets" *ngFor="let message of (messageService.messageThread$ | async)">
                 <div>
